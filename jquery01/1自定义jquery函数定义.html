@@ -28,105 +28,110 @@
 
             //不能直接操作数组
             // p.style.fontSize = '20px';//不行，错误
-            
+           
+           (function(window){
+
+                window.$ = $;
             //定义一个函数  模拟CSS操作DOM元素 
             //传进来的可能是  #id  .className 标签名
-            function $(selector){
+                function $(selector){
 
-                //如果是id就使用  document.getElementById('id')
-                
-                var firstChar = selector.substr(0,1);//获取到第一个字符  可能是 # . 其他
+                    test = 'aa';
 
-                //将obj定义为数组 保证返回结果一致  便于后续处理
-                var obj = [];//用来存放找到的元素
+                    //如果是id就使用  document.getElementById('id')
+                    
+                    var firstChar = selector.substr(0,1);//获取到第一个字符  可能是 # . 其他
 
-                var sel = selector.substr(1);//#divBox  获取到的就是divBox
-                switch(firstChar){
+                    //将obj定义为数组 保证返回结果一致  便于后续处理
+                    var obj = [];//用来存放找到的元素
 
-                    case '#':
-                        obj[0] = document.getElementById(sel)
-                    break;
+                    var sel = selector.substr(1);//#divBox  获取到的就是divBox
+                    switch(firstChar){
 
-                    case '.':
-                        obj = document.getElementsByClassName(sel);
+                        case '#':
+                            obj[0] = document.getElementById(sel)
+                        break;
 
-                    break;
+                        case '.':
+                            obj = document.getElementsByClassName(sel);
 
-                    default:
-                        obj = document.getElementsByTagName(selector);
+                        break;
 
-                    break;
+                        default:
+                            obj = document.getElementsByTagName(selector);
 
-                }
+                        break;
 
-                //html()方法我们用于处理 innerHTML属性
-                obj.html = function(val){
-
-                    //val没有传值，就是获取innerHTML的值
-                    if(val === undefined){
-                        return obj[0].innerHTML;
-
-                    //给匹配到的元素设置innerHTML
-                    }else{
-                        
-                        for(var i=0;i<obj.length;i++){
-
-                            obj[i].innerHTML = val;
-                        }
                     }
 
-                    return this;
-                    
-                }
+                    //html()方法我们用于处理 innerHTML属性
+                    obj.html = function(val){
 
-                /**
-                 * [css description]
-                 * @param  {[type]} key 需要设置的css的属性名
-                 * @param  {[type]} val 需要设置的css的值
-                 * @return {[type]}     [description]
-                 */
-                obj.css = function(key,val){
+                        //val没有传值，就是获取innerHTML的值
+                        if(val === undefined){
+                            return obj[0].innerHTML;
 
-                   
-                    //如果val为undefined 就说明是要获取值
-                    if(val === undefined){
+                        //给匹配到的元素设置innerHTML
+                        }else{
+                            
+                            for(var i=0;i<obj.length;i++){
 
-                        return obj[0].style[key];
-                    }else{
+                                obj[i].innerHTML = val;
+                            }
+                        }
+
+                        return this;
+                        
+                    }
+
+                    /**
+                     * [css description]
+                     * @param  {[type]} key 需要设置的css的属性名
+                     * @param  {[type]} val 需要设置的css的值
+                     * @return {[type]}     [description]
+                     */
+                    obj.css = function(key,val){
+
+                       
+                        //如果val为undefined 就说明是要获取值
+                        if(val === undefined){
+
+                            return obj[0].style[key];
+                        }else{
+
+                            for(var i = 0; i<obj.length; i++){
+
+                                obj[i].style[key] = val;
+                            }
+                        }
+
+
+                        //保证连贯操作
+                        return this;
+
+                    }
+
+
+                    //修改元素的属性（src title）
+                    obj.attr = function(key,val){
+
+                        if( val===undefined ){
+
+                            return obj[0][key];
+                        }
 
                         for(var i = 0; i<obj.length; i++){
 
-                            obj[i].style[key] = val;
+                            obj[i][key] = val;
                         }
+
                     }
 
-
-                    //保证连贯操作
-                    return this;
+                    return obj;
 
                 }
 
-
-                //修改元素的属性（src title）
-                obj.attr = function(key,val){
-
-                    if( val===undefined ){
-
-                        return obj[0][key];
-                    }
-
-                    for(var i = 0; i<obj.length; i++){
-
-                        obj[i][key] = val;
-                    }
-
-                }
-
-                return obj;
-
-            }
-
-
+            })(window); 
             // $('#blue').style.fontSize = '20px';
             // $('p').style.fontSize = '20px';
 
@@ -145,6 +150,7 @@
             //现在想要一行搞定需求
             var val = $('#blue').css('color','red').attr('title');
             console.log(val);
+           
 
         </script>
     </body>
