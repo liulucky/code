@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+        <script src="./jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        <input id="keyword" type="text"><button>搜索</button>
+
+        <table id="mytab" width="600" border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Sex</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>jack</td>
+                <td>男</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>hello</td>
+                <td>男</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>rose</td>
+                <td>男</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>good</td>
+                <td>男</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>rose</td>
+                <td>男</td>
+                <td>18</td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        $('button').click(function(){
+
+
+            //找到关键字
+            // var keyword = $('#keyword').val();
+
+            // $('td').css('color','black').parent().css('background','white');
+
+            // $('td:contains('+ keyword +')').css('color','red').parent().css('background','yellow');
+
+            $('td').css('color','black').parent().css('background','white').find('td:contains('+ $('#keyword').val() +')').css('color','red').parent().css('background','yellow');
+
+
+
+
+
+
+
+            /*
+            //得到要搜索的关键字
+            var text = $('#keyword').val();
+            $('td').css('color','black').parent().css('background','white');
+            $('td:contains('+ text +')').css('color','red').parent().css('background','yellow');
+            */
+
+
+            //装B写法
+/*            $('td').css('color','black').parent().css('background','white').find('td:contains('+ $('#keyword').val() +')').css('color','red').parent().css('background','yellow');
+            */
+            
+        });
+    </script>
+</html>
+
