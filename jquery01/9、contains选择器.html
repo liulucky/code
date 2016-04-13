@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+         <script src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        <p>####</p>
+        <p>####</p>
+        <p>####</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p><a href="http://www.github.com">哈哈，大家一定要知道这个黄色网址</a></p>
+        <p>哈哈哈，jquery真方便</p>
+        <p></p>
+        <p></p>
+    
+        <script>
+
+            // :contains(text)  匹配包含给定文本的元素
+            // $("p:contains('h')").css('color','red');
+
+            // :empty 匹配所有不包含子元素或文本的空元素
+            // $('p:empty').css('border','1px solid red');
+
+            // :parent 匹配含有子元素的元素
+            // $('p:parent').css('border','2px solid blue');
+            
+
+            // :has(selector) 匹配含有选择器所匹配的元素的节点
+            $('p:has(a)').css('boder','2px solid red');
+
+           
+
+        </script>
+    </body>
+</html>

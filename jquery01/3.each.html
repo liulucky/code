@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+        <script src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </body>
+
+    <script>
+
+        $('p').each(function(i){
+
+            switch(i){
+
+                case 1:
+
+                    $(this).html('美女'+i+'刘亦菲');
+                break;
+                case 2:
+
+                    $(this).html('美女'+i+'凤姐');
+                break;
+                case 3:
+
+                    $(this).html('美女'+i+'angelababy');
+                break;
+            }
+        });
+    </script>
+</html>

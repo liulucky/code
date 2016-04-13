@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+         <script src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        
+        <ul>
+            <li>#########</li>
+            <li>#########</li>
+            <li>#########</li>
+            <li>#########</li>
+            
+            <ol>
+                <li>%%%%%%5</li>
+                <li>%%%%%%5</li>
+                <li>%%%%%%5</li>
+                <li>%%%%%%5</li>
+
+            </ol>
+
+            
+
+        </ul>
+
+        <!-- 演示 +选择器  ~ 选择器 -->
+        <div>
+            <p>@@@@@@@</p>
+            <p>@@@@@@@</p>
+             <span>哈哈，凤姐居然最受欢迎</span>
+            <p id="box">@@@@@@@</p>
+            <span>哈哈，凤姐居然最受欢迎</span>
+            <span>哈哈，凤姐居然最受欢迎</span>
+            <span>哈哈，凤姐居然最受欢迎</span>
+            <p>@@@@@@@</p>
+            <p>@@@@@@@</p>
+            <p>@@@@@@@</p>
+
+        </div>
+        <script>
+            //后代选择器：在给定的祖先元素下匹配所有的后代元素
+            //语法： 选择器1 选择器2
+            // $('ul li').css('color','red');
+            
+            //子选择器：在给定的父元素下匹配所有的子元素 不包括孙子元素
+            // $('ul>li').css('color','red');
+
+            //相邻选择器：匹配所有紧接在 prev 元素后的 next 元素 
+            //语法：选择器+选择器1
+            // $('#box+span').css('fontSize','30px');
+            
+            //兄弟选择器： prev ~ siblings  匹配prev元素之后的所有siblings元素
+            $('#box~span').css('fontSize','30px');
+
+
+
+            
+        </script>
+    </body>
+</html>

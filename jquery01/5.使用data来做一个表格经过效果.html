@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+         <script src="jquery-1.7.2.min.js"></script>
+         <style>
+            
+            table{
+                width:500px;
+                border:1px solid black;
+            }
+            td{
+                border:1px solid black;
+
+            }
+         </style>
+    </head>
+    <body>
+        
+        <table>
+            <tr>
+                
+                <td>1么么挞</td>
+                <td>1么么挞</td>
+                <td>1么么挞</td>
+            </tr>
+            <tr>
+                
+                <td>2么么挞</td>
+                <td>2么么挞</td>
+                <td>2么么挞</td>
+            </tr>
+            <tr>
+                
+                <td>3么么挞</td>
+                <td>3么么挞</td>
+                <td>3么么挞</td>
+            </tr>
+
+        </table>
+        <script>
+
+            //隔行换色
+            $('tr:odd').css('background','pink');
+            $('tr:even').css('background','lightgreen');
+
+            $('tr').hover(function(){
+
+
+                $(this).data('bColor',$(this).css('backgroundColor')).css('background','yellow');
+            },function(){
+                $(this).css('background',$(this).data('bColor'));
+            });
+        </script>
+    </body>
+</html>

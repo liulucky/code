@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+         <script src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        <table width="500" border="1">
+            <tr>
+                <td>001</td>
+                <td>002</td>
+                <td>003</td>
+                <td>004</td>
+                <td>005</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>002</td>
+                <td>003</td>
+                <td>004</td>
+                <td>005</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>002</td>
+                <td>003</td>
+                <td>004</td>
+                <td>005</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>002</td>
+                <td>003</td>
+                <td>004</td>
+                <td>005</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>002</td>
+                <td>003</td>
+                <td>004</td>
+                <td>005</td>
+            </tr>
+        </table>
+    
+        <script>
+
+            //隔行换色
+            $('tr:even').css('backgroundColor','red');
+            $('tr:odd').css('backgroundColor','green');
+
+            $('tr').hover(function(){
+
+                //使用全局变量保存原来的颜色  这种方法不太推荐
+/*               
+                //版本1.0
+                 bgColor = $(this).css('backgroundColor');
+
+                $(this).css('backgroundColor','yellow');*/
+
+                //版本2.0
+                $(this).data( 'bgColor',$(this).css('backgroundColor') ).css('backgroundColor','yellow');
+
+            },function(){
+
+                //鼠标离开应该将背景颜色设置为原来的颜色
+                // $(this).css('backgroundColor',bgColor);//版本1.0代码
+                
+
+                //版本2.0
+                $(this).css('backgroundColor',$(this).data('bg') );
+                
+
+
+            });
+        </script>
+    </body>
+</html>

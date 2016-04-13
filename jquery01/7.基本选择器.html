@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+         <script src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        
+
+        <ul>
+            
+            <li>我们又来追求更快更短更小了！！</li>
+            <li>我们又来追求更快更短更小了！！</li>
+            <li class="red">我们又来追求更快更短更小了！！</li>
+            <li>我们又来追求更快更短更小了！！</li>
+
+        </ul>
+
+        <ul>
+            
+            <li>我们又来追求更快更短更小了！！</li>
+            <li>我们又来追求更快更短更小了！！</li>
+            <li class="red">我们又来追求更快更短更小了！！</li>
+            <li>我们又来追求更快更短更小了！！</li>
+
+        </ul>
+
+        <h1>标题1</h1>
+        <h2>标题2</h2>
+        <h3>标题3</h3>
+
+        <input type="text" name="userName" />
+        <script>
+
+
+            //  :first  获取到第一个元素
+            // $('ul li:first').css({'color':'red','fontSize':'30px'});
+
+            // :last 获取到最后元素
+            // $('ul li:last').css({'color':'red','fontSize':'30px'});
+
+            // :not() 去除所有与给定选择器匹配的元素
+            // $('ul li:not(.red)').css('color','blue');
+            
+            //:eq()匹配到给定索引的元素
+            // $('ul li:eq(2)').css('color','blue');
+
+            //:gt(index) 匹配所有大于index的元素
+            // $('ul li:gt(2)').css('color','blue');
+            
+
+            //:lt(index) 匹配所有小于index的元素
+             // $('ul li:lt(2)').css('color','blue');
+            
+            //:even 匹配到所有索引值为偶数的元素，从0开始
+            // $('ul li:even').css('color','blue');
+            
+            //:odd 匹配到所有索引值为奇数的元素，索引从0开始
+            // $('ul li:odd').css('color','orangered');
+            
+
+            //:header 匹配标题标签
+            // $(':header').css('background','red');
+            
+
+            //:focus 匹配到获取到焦点的元素
+            $('input').focus();
+            $(':focus').css('width','20px');
+        </script>
+    </body>
+</html>
