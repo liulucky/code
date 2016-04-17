@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <title>注册</title>
+        <meta charset="utf-8"/>
+        <script src="../jquery-1.9.0.js"></script>
+    </head>
+    <body>
+        
+        <div id="city">
+            <select name="" id="pro"></select>
+        </div>
+        
+
+        <script>
+
+            $(function(){
+
+                $.get(
+                    './getCityInfo.php',
+                    {'pid':0},
+                    function(res){
+                        
+                        var option = '<option>--请选择省份--</option>';
+                        for(var i=0;i<res.length;i++){
+                             option += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                        }
+                       // console.log(option);
+                        //将返回的数据放到select#pro中
+                        $('#pro').append(option);
+                    },
+                    'json'
+                    );
+
+
+                $('#city').on('change','select',function(){
+
+                    var ob = $(this);
+
+                    //清空后面的select
+                    ob.nextAll('select').remove();
+
+                    $.ajax({
+
+                        type:'GET',
+                        url: './getCityInfo.php',
+                        data:'pid='+$(this).val(),
+
+                        success:function(data){
+
+                            if(data.length <= 0 ){
+                                return false;
+                            }
+
+                            //统计有多少个select从而决定idVal的值
+                            var selectSize = $('#city select').size();
+
+                            console.log(selectSize);
+
+                            switch(selectSize){
+                                case 1:
+                                    idVal = 'Scity';
+                                    break;
+                                case 2:
+                                    idVal = 'qu';
+                                    break;
+                                case 3:
+                                    idVal = 'dao';
+                                    break;
+                                default:
+                                    idVal = 'haha';
+                                    break;
+                            }
+
+                            // idVal = 'Scity';
+
+                            //添加一个城市下拉
+                            var select = '<select id="'+idVal+'"><option>--请选择--</option>';
+
+                            for(var i=0;i<data.length;i++){
+                                select +='<option value="'+data[i].id+'">'+data[i].name+'</option>';
+                            }
+
+                            select += '</select>';
+
+                            ob.after(select);
+
+                        },
+                        dataType:'json'
+
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

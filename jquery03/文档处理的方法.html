@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+        <script src="./jquery-1.9.0.js"></script>
+    </head>
+    <body>
+        
+        <p>detach删除时间会保留</p>
+
+        <div></div>
+        
+        <script>
+
+           
+            $(function(){
+
+                $('p').click(function(){
+                    alert('aa')
+                });
+
+
+                // $('p').remove().appendTo($('body'));
+                
+
+                //detach()删除节点 再添加回来  保留事件
+                // $('p').detach().appendTo($('body'));
+
+                //emtpy()删除子节点
+                // $('body').empty();
+
+                //替换  只会替换标签，内容
+                // $('p').replaceWith('<div></div>');
+                $('<div></div>').replaceAll($('p'));
+
+                //复制clone()
+               // $('p').clone().appendTo($('body')); 
+
+            //clone(true)设置为true，会把原来的事件也复制
+               // $('p').clone(true).appendTo($('body')); 
+            });
+        </script>
+
+
+    </body>
+</html>

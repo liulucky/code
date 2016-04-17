@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+        <script src="./jquery-1.9.0.js"></script>
+    </head>
+    <body>
+        
+        <p>####</p>
+        <p>####</p>
+        <p>####</p>
+        <p>####</p>
+        <p>####</p>
+        <span>$$$$$</span><br/>
+        <span>$$$$$</span><br/>
+        <span>$$$$$</span><br/>
+        
+
+        <div>
+            
+            <p>%%%%%</p>
+            <p>%%%%%</p>
+            <p>%%%%%</p>
+            <p id="test">%%%%%</p>
+            <p>%%%%%</p>
+            <p>%%%%%</p>
+
+        </div>
+        <script>
+
+            //文档处理
+            $(function(){
+
+               
+                
+
+                //串联  add() addSelf() end()
+                //add() 添加一组元素进来
+                
+                //想要将p span标签都设置成红色
+                $('p').css('font-size','20px').add('span').css('color','red');
+                
+                //end()是回退的意思  将匹配的元素列表变为前一次的状态
+                $('p').css('font-size','20px').add('span').css('color','red').end().css('border','2px solid blue');
+
+                //addSelf()  addBack()将自己也添加进去
+                $('#test').siblings().addBack().css('color','green');
+            });
+        </script>
+    </body>
+</html>

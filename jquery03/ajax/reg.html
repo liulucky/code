@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+        <title>注册</title>
+        <meta charset="utf-8"/>
+        <script src="../jquery-1.9.0.js"></script>
+    </head>
+    <body>
+        
+        <form action="./" method="post">
+            
+            用户名：<input type="text" name="name"><span></span><br/>
+            邮箱：<input type="text" name="email"><span></span><br/>
+
+            <input type="submit" value="提交" />
+        </form>
+
+        <script>
+
+            $(function(){
+
+                $('form').on('blur','input[type=text]',function(){
+                    // alert('aa');
+                    
+                    //失去焦点时的值
+                    var val = $(this).val();
+
+                    var ob = $(this);
+
+                    //获取name ，用来区别是userName还是userEmail
+                    var type = $(this).attr('name');
+
+
+                    //val不为空的时候才请求服务器
+                    if( val ){
+
+                        console.log($(this).data('val'));
+
+                        if( val !== $(this).data('val') ){
+                            $.ajax({
+
+                                type:'post',
+                                url:'./doReg.php',
+                                // data:'val='+val+'&type='+type,
+                                data:'data='+$('form').serialize(),
+
+                                success:function(res){
+
+                                    ob.data('val',val);
+
+                                    // ob.next().remove();
+
+                                    //可以注册
+                                    if(res!='2'){
+
+                                        ob.next().html('可以注册');
+                                        $('input[type=submit]').attr('disabled',false);
+                                    }else{
+
+                                        // alert('已经被注册');
+                                         ob.next().html('已经被注册');
+                                         $('input[type=submit]').attr('disabled',true);
+
+                                    }
+                                },
+                                dataType:'html'
+                            });                        
+                        }
+
+
+
+                    }else{
+
+                        ob.next().html('请输入用户名');
+                    }
+
+
+                });
+                
+            });
+        </script>
+    </body>
+</html>

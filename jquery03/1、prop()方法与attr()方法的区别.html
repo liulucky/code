@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+        <script src="./jquery-1.9.0.js"></script>
+    </head>
+    <body>
+        
+
+        <input type="text" info="测试" />
+
+        <script>
+            $(function(){
+
+                //prop()方法不可以获取到自定义的属性
+                var info = $('input').prop('info');
+
+                //attr()可以获取自定义的属性
+                var info = $('input').attr('info');
+                console.log(info);
+            });
+        </script>
+    </body>
+</html>

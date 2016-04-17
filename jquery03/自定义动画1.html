@@ -1,14 +1,13 @@
 <!doctype html>
 <html>
     <head>
-        <title>自定义动画2与stop</title>
+        <title>自定义动画</title>
         <meta charset="utf-8"/>
         <style>
             div{
-                width:20px;
-                height:20px;
+                width:100px;
+                height:0px;
                 background: red;
-                position: relative;
             }
            
         </style>
@@ -21,7 +20,6 @@
 
         </div>
         <button>开始</button>
-        <button>停止</button>
         <script>
 
            
@@ -30,15 +28,15 @@
                 $('button').click(function(){
 
                     $('div').animate({
-                        'top':'500px'
-                    },3000).animate({
-                        'left':'500px'
-                    },3000);
-                }).next().click(function(){
+                        'width':'100px',
+                        'height':'50px',
+                    },1000,function(){
 
-                    //stop()第一个参数是  是否情况动画队列
-                    //第二个参数是  是否直接跳转到末尾
-                    $('div').stop(false,true);
+                        // alert('这个函数，动画执行完成后执行')
+                    }).animate({
+                        'width':'150px',
+                        'height':'150px'
+                    },800);
                 });
                
 

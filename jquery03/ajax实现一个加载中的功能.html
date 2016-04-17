@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <title>自定义动画</title>
+        <meta charset="utf-8"/>
+        <style>
+            div{
+                width:100px;
+                height:0px;
+                background: red;
+            }
+           
+        </style>
+        <script src="./jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        
+        <div>
+            这是旧的信息
+        </div>
+        <br/>
+        <button>加载</button>
+        
+        <script>
+
+           
+            $(function(){
+
+/*                $('div').ajaxStart(function(){
+                    $(this).html('加载中...');
+                }).load('./ajax.php');
+*/
+        
+                $('button').click(function(){
+
+                    $('div').html('加载中');
+                    $.get('./ajax.php',function(res){
+                        $('div').html(res);
+                    });
+                });
+
+            });
+
+
+        </script>
+
+
+    </body>
+</html>

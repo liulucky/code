@@ -1,0 +1,29 @@
+1、文档的删除。detach  remove 的区别
+
+   替换 replaceWith() replaceAll()
+  
+    克隆  clone()
+
+2、串联  add()  end() addBack()
+
+3、事件阻止冒泡、剩余的事件
+
+	trigger()
+	triggerHandler()
+	
+4、效果
+	slideDown()
+	slideToggle()
+	animate()自定义动画默认只对属性的值是数值的有效
+	
+	stop(true,false)的两个参
+
+5、ajax
+	$.ajax()
+	$.get()
+	$.post()
+	ajaxStart()
+	serialize()
+     1、实现一个加载中的效果
+     2、ajax实现在一个页面做一个增、删操作   、用户名是否重复
+     3、ajax实现城市三级联动

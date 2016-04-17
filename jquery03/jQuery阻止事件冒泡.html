@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <title>jQuery阻止事件冒泡</title>
+        <meta charset="utf-8"/>
+        <style>
+            div{
+                width:200px;
+                height:200px;
+                background: red;
+            }
+            p{
+                width:100px;
+                height:100px;
+                background: blue;
+            }
+        </style>
+        <script src="./jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        
+        <div>
+            <p></p>
+
+        </div>
+        <button>求虐</button>
+        <script>
+
+           
+            $(function(){
+
+                $('div').click(function(){
+
+                    alert('div');
+
+                });
+
+                $('p').click(function(){
+
+                    alert('p');
+
+                    //jQuery阻止时事件冒泡:在小的盒子李里面return false
+                    // return false;
+
+                });
+
+                //使用js触发事件
+                // $('p').trigger('click');
+
+                //triggerHandler()会自动阻止冒泡
+                // $('p').triggerHandler('click');
+
+                $('button').toggle(function() {
+                    alert('满足你')
+                }, function() {
+                    alert('还来')
+                });
+                
+            });
+
+
+        </script>
+
+
+    </body>
+</html>
