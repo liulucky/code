@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        变量调节器
+        {"lamp"|strtoupper}
+        {$title|strtoupper}
+
+        {ucfirst(strtolower('lAmp'))}
+
+        {'lAmp'|strtolower|ucfirst}
+    
+        {*当变量作为第二个的参数，无法使用变量调节器*}
+        {$time|date_format:"%Y-%m-%d %H:%I:%S"}
+
+        <!-- 设置默认值 -->
+        {$title1|default:'暂无数据'}
+
+        <!-- 转义html -->
+        {$name|htmlspecialchars}
+    </body>
+</html>

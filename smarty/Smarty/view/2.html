@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        1.在模板中定义变量
+        {$name = 'jack'}
+        {$list = [13,27,45]}
+
+        <!-- 关联数组 -->
+        {$arr = ['name'=>'jack']}
+
+        2.输出变量
+        {$name}
+        {$list[1]}
+        {$list.1}
+        {$list.1+1}
+        {$list[1+1]}
+
+        <!-- 输出关联数组 -->
+        {$arr['name']}
+
+        <!-- 类似于JS的输出 -->
+        {$arr.name}
+
+        <!-- 在模板中输出PHP对象 -->
+        {$obj->name}
+
+        <!-- 调用PHP系统函数 -->
+        {time()}
+        {date('Y-m-d H:i:s')}
+
+        <!-- 调用自定义函数 -->
+        {test()}
+
+            <br/>
+        <!-- 输出超全局数组：$_POST $_SESSION -->
+        {$smarty.get.name}
+        {$smarty.post.name}
+    
+        <br/>
+        <!-- 输出常量 -->
+        {$smarty.const.HOST}
+    </body>
+</html>
