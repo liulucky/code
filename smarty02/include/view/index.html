@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        {block name="title"}<title>首页</title>{/block}
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+         <span>{$title}</span>
+        
+        {block name="header"}
+        <header>网站的首页
+            <nav>
+                <!-- 使用自定义调节器 -->
+                {$select|option}
+                <ul>啊哈哈</ul>
+            </nav>
+        </header>
+        {/block}
+        <main>
+            <section>
+                
+                网站内容
+            </section>
+            <aside>
+                网站的右边栏
+            </aside>
+        </main>
+
+        <footer>网站的尾部</footer>
+    </body>
+</html>

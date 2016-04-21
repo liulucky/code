@@ -1,0 +1,16 @@
+{extends file='./index.html'}
+
+{block name="header"}
+    <header>网站的首页
+        <nav>
+           
+            <ul>
+                <li>子模板</li>
+                {$smarty.block.parent}
+                {block name="header1"}<li>ddd</li>{/block}
+            </ul>
+        </nav>
+
+         {$select|option}
+    </header>
+{/block}
